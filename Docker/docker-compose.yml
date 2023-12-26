@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  postgresdb:
+    container_name: postgresql-con
+    image: postgres:14.4-alpine
+    environment:
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=postgres
+
+      - POSTGRES_DB=spotify-recommender
+      - POSTGRES_USER=vicent
+      - POSTGRES_PASSWORD=admin123
+    ports:
+      - '5433:5432'
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    # networks:
+    #   - dbs_net
+# volumes:
+#   db:
+#     driver: local
+
+# networks:
+#   dbs_net:  
+#     external:
+#       name: dbs
